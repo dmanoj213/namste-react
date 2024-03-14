@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/dmanoj213/namste-react/issues"
   },
-  "homepage": "https://github.com/dmanoj213/namste-react#readme",
+  "homepage": "http://dmanoj213.github.io/namste-react/",
   "devDependencies": {
     "@babel/core": "^7.24.0",
     "@babel/preset-env": "^7.24.0",
@@ -52,3 +52,4 @@
     "last 10 version"
   ]
 }
+
