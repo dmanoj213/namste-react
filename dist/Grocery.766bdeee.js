@@ -1,0 +1,2 @@
+var e=("undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:{}).parcelRequireb877;(0,e.register)("9l7U7",function(n,o){Object.defineProperty(n.exports,"__esModule",{value:!0,configurable:!0}),Object.defineProperty(n.exports,"default",{get:function(){return i},set:void 0,enumerable:!0,configurable:!0});var t=e("93zYy"),i=()=>(0,t.jsx)("h1",{className:"text-center font-bold",children:"Hi This is Grocery Component with lazy loading feature"})});
+//# sourceMappingURL=Grocery.766bdeee.js.map
