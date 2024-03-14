@@ -1,40 +1,99 @@
+import React, { Children, lazy, Suspense, useEffect, useState } from "react";
+import ReactDOM from "react-dom/client";
+import Header from "./components/Header";
+import Body from "./components/Body";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import { Route, Outlet } from "react-router-dom";
+import Error_Element from "./components/Error_Element";
+import RestaurantMenu from "./components/RestaurantMenu";
+import { useContext } from "react";
+import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
 
-// const heading = React.createElement("h1",{id : "root"},"Hello Vadhi from React")
 
-// const root = ReactDOM.createRoot(document.getElementById("root"))
 
-// console.log(heading);
+// import Grocery from "./components/Grocery";
 
-// root.render(heading)
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
-// {/* <div id="parent1">
 
-//     </div id="child1">
-//        <h1>I am an h1 tag</h1>
-//        <h2>I am an h2 tag</h2>
-//     </div>
 
-// </div>
+const AppLayout = () =>
+{
+    const [userName,setuserName] = useState();
 
-// <div id="parent2">
+    useEffect(()=>
+    {
+        const data = {
+            name: "Manoj Kumar Vadhi",
+        };
+        setuserName(data.name);
+    },[]);
 
-// </div id="child2">
-//    <h1>I am an h1 tag</h1>
-//    <h2>I am an h2 tag</h2>
-// </div>
+    return (
+    <Provider store={appStore}>
+        <UserContext.Provider value={{loggedInUser: userName,setuserName}}>
+            <div className="app">
+               <Header />
+               <Outlet />
+               
+               
+            </div>
+        </UserContext.Provider>
+    </Provider>
+    )
+    
+}
+const Grocery = lazy(()=> import("./components/Grocery"))
 
-// </div>
-//  */}
+const appRouter = createBrowserRouter([
+    {
+        path: "/",
+        element : <AppLayout />,
+        errorElement: <Error_Element />,
+        children: [
+            {
+                path: "/",
+                element: <Body />
+            },
+            {
+                path: "/about",
+                element:  <About />,
+            },
+        
+            {
+                path: "/contact",
+                element: <Contact />,
+            },
+            {
+                path: "/grocery",
+                element: <Suspense fallback={<h1>Loading</h1>}><Grocery/></Suspense>,
+            },
+            {
+                path: "/restaurants/:resId",
+                element: <RestaurantMenu />
+            },
+            {
+                path: "/cart",
+                element: <Cart />
+            },
+            
+        ]
+    },
 
-// when you want to crate the structure of the above
+    
+    
+])
 
-const heading = React.createElement("div",{id:"parent1"},
-    React.createElement("div",{id: "child1"},[
-    React.createElement("h1",{},"I am an h1 tag"),
-    React.createElement("h2",{},"I am an h2 tag")]))
-
-console.log(heading);
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-root.render(heading);
+root.render(<RouterProvider router={appRouter}/>);
+
+
+
+

@@ -1,0 +1,51 @@
+{
+  "name": "namste-react",
+  "version": "1.0.0",
+  "description": "This is namste-react by Manoj Kumar",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest",
+    "watch-test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmanoj213/namste-react.git"
+  },
+  "keywords": [
+    "manoj",
+    "vadhi"
+  ],
+  "author": "Manoj Kumar D",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmanoj213/namste-react/issues"
+  },
+  "homepage": "https://github.com/dmanoj213/namste-react#readme",
+  "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "@testing-library/react": "^14.2.1",
+    "babel-jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "parcel": "^2.12.0",
+    "postcss": "^8.4.35",
+    "process": "^0.11.10",
+    "server": "^1.0.38",
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "@babel/preset-react": "^7.23.3",
+    "@parcel/transformer-js": "^2.12.0",
+    "@parcel/transformer-react-refresh-wrap": "^2.12.0",
+    "@reduxjs/toolkit": "^2.2.1",
+    "@testing-library/jest-dom": "^6.4.2",
+    "jest": "^29.7.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.1"
+  },
+  "browserslist": [
+    "last 10 version"
+  ]
+}
